@@ -1,0 +1,20 @@
+<%- include("partials/header.ejs") %>
+
+<main>
+    <h1 class="montserrat">Recent Blog Posts</h1>
+    <div class="blog-container">
+        <% posts.forEach(post => { %>
+            <div class="blog-post">
+                <form id="trash-form" action="/delete/<%= post.id %>" method="POST" onsubmit="return confirm('Are you sure you want to delete this blog post?');">
+                    <button class="delete-btn" type="submit"><i class="fa-solid fa-trash-can"></i></button>
+                </form>
+                <h2 class="montserrat title"><%= post.title %></h2>
+                <p class="roboto-regular content"><%= post.content.slice(0,20) + "..." %><br><a href="/blog/<%= post.id %>">Read More</a></p>
+                <!-- Delete button next to each blog -->
+                <p><small class="roboto-light">By <%= post.author %> on <%= post.date %></small></p>
+            </div>
+        <% }); %>
+    </div>
+</main>
+
+<%- include("partials/footer.ejs") %>

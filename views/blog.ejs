@@ -1,0 +1,13 @@
+<%- include("partials/header.ejs") %>
+
+<div class="blog">
+   <div class="blog-title roboto-regular">
+    <h1><%= blg.title %></h1>
+   </div>
+   <div class="blog-content montserrat">
+    <p><span><%= blg.content %></span></p>
+    <p id="date">on <%= blg.date %> by <%= blg.author %></p>
+   </div>
+</div>
+
+<%- include("partials/footer.ejs") %>
